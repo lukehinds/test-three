@@ -1,5 +1,4 @@
-name: Frizbee Pinned Actions and Container Images Check
-
+name: Renovate
 on:
   schedule:
     - cron: '0 0 * * *' # Run every day at midnight

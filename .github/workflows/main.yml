@@ -1,0 +1,18 @@
+name: Frizbee Pinned Actions and Container Images Check
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Run every day at midnight
+  workflow_dispatch:
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+      - name: Self-hosted Renovate
+        uses: renovatebot/github-action@v40.1.12
+        with:
+          docker-cmd-file: .github/renovate-entrypoint.sh
+          docker-user: root
+          token: ${{ secrets.FRIZBEE_TOKEN }}
